@@ -35,7 +35,7 @@ while True:
         if marca != "SCOTT":
             print("Pone una marca valida")
         else:
-            print("Genial")
+            print("Genial!")
             break
         continue
 
@@ -44,7 +44,15 @@ while True:
         if tipo != "MONTANIA":
             print("elija un tipo valido")
         else:
-            print("Bien")
+            print("Bien!")
             break
         continue
    
+while True:
+        rodado = input('ingrese tipo')
+        if rodado != "XS":
+            print("elija un rodado valido")
+        else:
+            print("Perfecto!")
+            break
+        continue

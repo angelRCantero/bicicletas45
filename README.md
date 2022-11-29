@@ -13,4 +13,4 @@ Hola, mi nombre es Angel Cantero y esta es una app para buscar y comprar bicicle
 
 ****************************************************************
 
-BIENVENIDOS!!
+BIENVENIDOS Y BIENVENIDAS!!

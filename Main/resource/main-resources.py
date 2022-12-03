@@ -30,6 +30,10 @@
 #color = input ( "seleccione color")
 #print (" usted selecciono, " + color )
 
+import openpyxl
+from openpyxl import workbook
+from openpyxl import load_workbook
+
 def verificacion_entrada():
     marca = "MORENO", "SPECIALIZED", "SCOTT", "TREK", "GIANT", "CANYON", "CANNONDALE", "ORBEA", "BMC", "PINARELLO", "BIANCHI"
 
@@ -89,13 +93,13 @@ def verificacion_entrada():
         print("De no ser correcta presione 0")
         paso_1 = int(input("Desea continuar ")) #EL PASO 1 ESTÁ DELIVERANDO LA CONTINUIDAD DE LA EJECUCIÓN DEL PROGRAMA
         if paso_1 == 0:
-            print("Vuelva a seleccionar el bulón")        
+            print("Vuelva a seleccionar la bicicleta")      
         else: #COMO SIGUIENTE PASO LLAMA A UNA NUEVA VARIABLE EN ESTE CASO LA VARIABLE ' cantRequerida ' QUE DEFINIREMOS EN LA LINEA '98'
-            cantRequerida
+            cantRequerida()
             break
         continue
     
-def cantidad_requerida():
+def cantRequerida():
     while True:#LA CANTIDAD REQUERIDA CONSTA DE UN BUCLE PARA PODER VALIDAR EL DATO DE ENTRADA E INTEGRÁR TANTO EL STOCK DE LA TIENDA
         global cantRequerida #COMO ASI TAMBIÉN EL CARRITO DE COMPRA,PUDIENDO ASI,HACER MAS DE UNA COMPRA DENTRO DEL PROGRAMA ACTIVO
         try:
@@ -115,21 +119,44 @@ def continuarComprando ():
         print("Desea seguir comprando?: ")
         print("1:Continuar comprando")
         print("2:Finalizar compra")
-        continuarONo = int(input("Introduzca Respuesta "))
-        if continuarONo == 1:#AL CONTINUAR SE DEBERÁ SEGUIR CON LAS SIGUIENTES SUBRRUTINAS YA ADENTRANDONOS EN LA LOCAL DE NUESTRO PROGRAMA
-            Superb45()#POR MEDIO DE UN SUPERDESCRIPTOR HACEMOS USO DE BUSQUEDAS MAS ÁGILES PERO RESTA DEFINIRLO
-            agregarAlCarrito() #RESTA DEFINIR EL CARRITO CON SU ESTRUCTURA IMPORTANDO LOS DATOS DEL EXCEL
-        else:
-            Superb45()
-            verficarStock()#RESTA DEFINIR EL STOCK DISPONIBLE PARA ASÍ MODIFICAR NUESTRA LOCAL Y HACER CAMBIOS MEDIANTE LA 
-            break# ENTRADA DEL USUARIO Y DAR UNA RESPUESTA NEGATIVA EN CASO DE NO HABER DISPONIBILIDAD DE DICHA BICI
+        continuarComprando = (input("Introduzca Respuesta "))
+        if continuarComprando == 1:
+            verificacion_entrada()#PROBLEMA DE IDENTACION EN FUNCION RECURSIVA (LLAMA UN PROCESO DENTRO DE OTRO PROCESO)
+            
+        else: 
+            verificarStock()
+           
         continue
     
+        
+def verificarStock():
+    global fila
+    global stock
+    #cargamos el archivo
+    filesheet = ("C:\DESARROLLO\APPSCURSOPYTHON\bicicletas45\EXCEL-BICI45\bicis45-excel.xlsx")
+    wb = load_workbook(filesheet)
+    sheet = wb['stock'] #cargamos la hoja
+
+    
+    for cell in sheet["E"]:
+        if cell.value == int():
+            if stock >= cantRequerida:
+                print("Gracias por su compra")
+                
+            else:
+                print("El stock disponible es", stock)
+                print("Seleccione nueva cantidad:")
+            continue
+        
+print("Hola!! Bienvenidos a Bicicletas45")
+print("Seleccione que bicicleta desea comprar")
+
+verificacion_entrada()
 
             
  
  #IMPORTAR EL EXCEL MEDIANTE PANDA
  #OP: GENERAR SUPERDESCRIPTOR IMPORTADO DESDE EL EXCEL Y CARGAR DE DATOS AL MISMO
- 
+ #SACAR DE LA VERIF DE ENTRADA 'CONTINUAR COMPRANDO'
 
     

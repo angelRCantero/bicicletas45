@@ -34,6 +34,8 @@ import openpyxl
 from openpyxl import workbook
 from openpyxl import load_workbook
 
+
+
 def verificacion_entrada():
     marca = "MORENO", "SPECIALIZED", "SCOTT", "TREK", "GIANT", "CANYON", "CANNONDALE", "ORBEA", "BMC", "PINARELLO", "BIANCHI"
 
@@ -82,8 +84,7 @@ def verificacion_entrada():
                     print("Excelente!")
                     break
                 continue
-#APOYANDOME EN EL TRABAJO DE MI COMPAÑERO BERNARDO USO SU SINTAXIS PARA EL MENÚ DEL BUCLE DEL PROGRAMA
-#POR MEDIO DEL MENÚ LLAMO A LAS VARIABLES CON EL USO DEL ' print + var ' POR EJEMPLO ' print(su msj) + marca '            
+                        
         print("Has elegido la bicicleta ")
         print(("de la marca:  ") + (marca))
         print(("del tipo:  ") + (tipo))
@@ -91,72 +92,68 @@ def verificacion_entrada():
         print(("de color: ") + color)
         print("Si la bicicleta elegida es correcta presione 1")
         print("De no ser correcta presione 0")
-        paso_1 = int(input("Desea continuar ")) #EL PASO 1 ESTÁ DELIVERANDO LA CONTINUIDAD DE LA EJECUCIÓN DEL PROGRAMA
+        paso_1 = int(input("Desea continuar ")) 
         if paso_1 == 0:
-            print("Vuelva a seleccionar la bicicleta")      
-        else: #COMO SIGUIENTE PASO LLAMA A UNA NUEVA VARIABLE EN ESTE CASO LA VARIABLE ' cantRequerida ' QUE DEFINIREMOS EN LA LINEA '98'
-            cantRequerida()
+            print("Vuelva a seleccionar la bicicleta")
+        elif paso_1 == 1:
+            cantRequerida()      
+        else: 
+            print("ingrese una opcion valida")
+            paso_1
             break
         continue
     
 def cantRequerida():
-    while True:#LA CANTIDAD REQUERIDA CONSTA DE UN BUCLE PARA PODER VALIDAR EL DATO DE ENTRADA E INTEGRÁR TANTO EL STOCK DE LA TIENDA
-        global cantRequerida #COMO ASI TAMBIÉN EL CARRITO DE COMPRA,PUDIENDO ASI,HACER MAS DE UNA COMPRA DENTRO DEL PROGRAMA ACTIVO
+    while True:
+        global cantRequerida
         try:
             cantRequerida = int(input("Introduzca la cantidad requerida: "))
         except ValueError:
             print("Debes escribir un numero")
             continue
-        if cantRequerida > 0:
-            continuarComprando()#ESTA OPERACIÓN LLAMA A LA SIGUIENTE VARIABLE PARA PODER CONTINUAR COMPRANDO
-        else:#LA VARIABLE 'continuarComprando' DEFINIDA EN LA LINEA (113)
-            print("Debe colocar un numero positivo")
+        if cantRequerida <= 0:
+            print("coloca un numero valido") 
+        else:
+            finalizarCompra()
             break
-        continue         
-    
-def continuarComprando ():
-    while True:#MEDIANTE WHILE TRUE SE GENERA UN SUB-MENÚ QUE DA OPCIONES DE COMO CONTINUAR
-        print("Desea seguir comprando?: ")
-        print("1:Continuar comprando")
-        print("2:Finalizar compra")
-        continuarComprando = (input("Introduzca Respuesta "))
-        if continuarComprando == 1:
-            verificacion_entrada()#PROBLEMA DE IDENTACION EN FUNCION RECURSIVA (LLAMA UN PROCESO DENTRO DE OTRO PROCESO)
-            
-        else: 
-            verificarStock()
-           
         continue
     
+def finalizarCompra ():
+    while True:
+        print("Desea seguir comprando?: ")
+        print("2:Continuar comprando")
+        print("1:Finalizar compra")
+        finalizarCompra = input("Introduzca Respuesta ")
+        if finalizarCompra == 1:
+            print("Gracias por visitarnos!!")
+        else:
+            continuarComprando()
+            break
         
-def verificarStock():
-    global fila
-    global stock
-    #cargamos el archivo
-    filesheet = ("C:\DESARROLLO\APPSCURSOPYTHON\bicicletas45\EXCEL-BICI45\bicis45-excel.xlsx")
-    wb = load_workbook(filesheet)
-    sheet = wb['stock'] #cargamos la hoja
-
-    
-    for cell in sheet["E"]:
-        if cell.value == int():
-            if stock >= cantRequerida:
-                print("Gracias por su compra")
-                
+def continuarComprando():
+        while True:
+            print("seguimos comprando? ")
+            print("1:seguimos!: ")
+            print("2:No, gracias!: ")
+            if continuarComprando ==1:
+                print("sigamos comprando!!")
+                verificacion_entrada()
             else:
-                print("El stock disponible es", stock)
-                print("Seleccione nueva cantidad:")
-            continue
+                print("gracias por tu visita!!")
+            break
+    
         
+    
+
 print("Hola!! Bienvenidos a Bicicletas45")
 print("Seleccione que bicicleta desea comprar")
 
 verificacion_entrada()
+finalizarCompra()
+
 
             
  
- #IMPORTAR EL EXCEL MEDIANTE PANDA
- #OP: GENERAR SUPERDESCRIPTOR IMPORTADO DESDE EL EXCEL Y CARGAR DE DATOS AL MISMO
- #SACAR DE LA VERIF DE ENTRADA 'CONTINUAR COMPRANDO'
+ #PROBLEMA AL EJECUTAR EL BUCLE POR SEGUNDA VEZ SE ROMPE EL PROGRAMA NI TAMPOCO CIERRA BIEN EL BUCLE INICIAL
 
     

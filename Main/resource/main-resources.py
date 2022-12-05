@@ -44,13 +44,11 @@ def verificacion_entrada():
     rodado = "XS", "S", "M", "M2"
 
     color = "ROJO", "VERDE", "AZUL", "AMARILLO", "NEGRO", "BLANCO"
-    while True: # GENERO EL BUCLE DEL PROGRAMA DESDE LA LINEA '41' HASTA LA LINEA '95' MEDIANTE WHILE TRUE/BREAK/CONTINUE
-         
+
+while True:
+    
         while True:
-                marca = input('ingrese marca')#COMENZAMOS AGRUPANDO TODAS LAS VARIABLES CON LAS QUE FUE DECLARADA LA ENTRADA 'marca' 
-                #CON UNA ETIQUETA DE TIPO 'and' EN VEZ DE EL 'or'
-                #ESTO ES SOLAMENTE POSIBLE SI SE LLAMA A LA ACCION PREVIAMENTE MARCADA DENTRO DEL 'if' CADA VEZ QUE SE USE EL AND EN ESTE CASO
-                #'IF MARCA != VAR ACEPTADA 'and' IF MARCA != VAR ACEPTADA NUEVAMENTE' 
+                marca = input('ingrese marca') 
                 if marca != "SCOTT" and marca !="MORENO" and marca != "SPECIALIZED" and marca != "SCOTT" and marca != "TREK" and marca != "GIANT"and marca != "CANYON" and marca != "CANNONDALE" and marca != "ORBEA" and marca != "BMC" and marca != "PINARELLO" and marca != "BIANCHI":
                     print("Pone una marca valida")
                 else:
@@ -141,16 +139,12 @@ def continuarComprando():
             else:
                 print("gracias por tu visita!!")
             break
-    
-        
-    
-
+            
 print("Hola!! Bienvenidos a Bicicletas45")
 print("Seleccione que bicicleta desea comprar")
 
 verificacion_entrada()
 finalizarCompra()
-
 
             
  

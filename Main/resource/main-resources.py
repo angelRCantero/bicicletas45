@@ -44,6 +44,47 @@ def verificacion_entrada():
     rodado = "XS", "S", "M", "M2"
 
     color = "ROJO", "VERDE", "AZUL", "AMARILLO", "NEGRO", "BLANCO"
+    
+def cantRequerida():
+    while True:
+        global cantRequerida
+        try:
+            cantRequerida = int(input("Introduzca la cantidad requerida: "))
+        except ValueError:
+            print("Debes escribir un numero")
+            continue
+        if cantRequerida <= 0:
+            print("coloca un numero valido") 
+        else:
+            finalizarCompra()
+            break
+        continue
+    
+def finalizarCompra ():
+    while True:
+        print("Desea seguir comprando?: ")
+        print("1:Continuar comprando")
+        print("2:Finalizar compra")
+        finalizarCompra = input("Introduzca Respuesta ")
+        if finalizarCompra == 1:
+            continuarComprando()
+        else:
+            print("Gracias por visitarnos!!")
+            
+            break
+        
+def continuarComprando():
+        while True:
+            print("seguimos comprando? ")
+            print("1:seguimos!: ")
+            print("2:No, gracias!: ")
+            if continuarComprando ==1:
+                print("sigamos comprando!!")
+                verificacion_entrada()
+            else:
+                print("gracias por tu visita!!")
+                break
+            
 
 while True:
     
@@ -82,7 +123,7 @@ while True:
                     print("Excelente!")
                     break
                 continue
-                        
+                          
         print("Has elegido la bicicleta ")
         print(("de la marca:  ") + (marca))
         print(("del tipo:  ") + (tipo))
@@ -100,51 +141,16 @@ while True:
             paso_1
             break
         continue
-    
-def cantRequerida():
-    while True:
-        global cantRequerida
-        try:
-            cantRequerida = int(input("Introduzca la cantidad requerida: "))
-        except ValueError:
-            print("Debes escribir un numero")
-            continue
-        if cantRequerida <= 0:
-            print("coloca un numero valido") 
-        else:
-            finalizarCompra()
-            break
-        continue
-    
-def finalizarCompra ():
-    while True:
-        print("Desea seguir comprando?: ")
-        print("2:Continuar comprando")
-        print("1:Finalizar compra")
-        finalizarCompra = input("Introduzca Respuesta ")
-        if finalizarCompra == 1:
-            print("Gracias por visitarnos!!")
-        else:
-            continuarComprando()
-            break
-        
-def continuarComprando():
-        while True:
-            print("seguimos comprando? ")
-            print("1:seguimos!: ")
-            print("2:No, gracias!: ")
-            if continuarComprando ==1:
-                print("sigamos comprando!!")
-                verificacion_entrada()
-            else:
-                print("gracias por tu visita!!")
-            break
-            
+
+#####################################################################################################################################
+
 print("Hola!! Bienvenidos a Bicicletas45")
 print("Seleccione que bicicleta desea comprar")
 
 verificacion_entrada()
+cantRequerida()
 finalizarCompra()
+continuarComprando()
 
             
  

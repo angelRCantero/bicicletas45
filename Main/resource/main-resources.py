@@ -30,10 +30,14 @@
 #color = input ( "seleccione color")
 #print (" usted selecciono, " + color )
 
-import openpyxl
-from openpyxl import workbook
+import openpyxl 
 from openpyxl import load_workbook
 
+
+
+
+print("Hola!! Bienvenidos a Bicicletas45")
+print("Seleccione que bicicleta desea comprar")
 
 
 def verificacion_entrada():
@@ -60,32 +64,25 @@ def cantRequerida():
             break
         continue
     
-def finalizarCompra ():
+                
+def finalizarCompra():
     while True:
         print("Desea seguir comprando?: ")
         print("1:Continuar comprando")
         print("2:Finalizar compra")
-        finalizarCompra = input("Introduzca Respuesta ")
-        if finalizarCompra == 1:
-            continuarComprando()
+        try:
+            finalizarCompra = int(input("Introduzca Respuesta "))
+        except ValueError:
+            if finalizarCompra == 1:
+                verificacion_entrada()
         else:
             print("Gracias por visitarnos!!")
-            
             break
+        break
         
-def continuarComprando():
-        while True:
-            print("seguimos comprando? ")
-            print("1:seguimos!: ")
-            print("2:No, gracias!: ")
-            if continuarComprando ==1:
-                print("sigamos comprando!!")
-                verificacion_entrada()
-            else:
-                print("gracias por tu visita!!")
-                break
-            
-
+        
+        
+        
 while True:
     
         while True:
@@ -140,17 +137,13 @@ while True:
             print("ingrese una opcion valida")
             paso_1
             break
-        continue
+        
 
 #####################################################################################################################################
 
-print("Hola!! Bienvenidos a Bicicletas45")
-print("Seleccione que bicicleta desea comprar")
-
 verificacion_entrada()
-cantRequerida()
 finalizarCompra()
-continuarComprando()
+
 
             
  

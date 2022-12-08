@@ -6,30 +6,6 @@
 # developes: Cantero Angel Rafael
 #########################################
 
-#main-resources
-
-#marca = "MORENO", "SPECIALIZED", "SCOTT", "TREK", "GIANT", "CANYON", "CANNONDALE", "ORBEA", "BMC", "PINARELLO", "BIANCHI"
-
-#tipo = "MONTANIA", "PASEO", "COMPETICION", "EXPOSICION", "ENTRENAMIENTO"
-
-#rodado = "XS", "S", "M", "M2"
-
-#color = "ROJO", "VERDE", "AZUL", "AMARILLO", "NEGRO", "BLANCO"
-
-#index
-
-#marca = input ( "seleccione marca")
-#print (" usted selecciono, " + marca )
-
-#tipo = input ( "seleccione tipo")
-#print (" usted selecciono, " + tipo )
-
-#rodado = input ( "seleccione rodado")
-#print (" usted selecciono, " + rodado )
-
-#color = input ( "seleccione color")
-#print (" usted selecciono, " + color )
-
 import openpyxl 
 from openpyxl import load_workbook
 
@@ -51,7 +27,7 @@ def verificacion_entrada():
     
 def cantRequerida():
     while True:
-        global cantRequerida
+        
         try:
             cantRequerida = int(input("Introduzca la cantidad requerida: "))
         except ValueError:
@@ -137,7 +113,7 @@ while True:
             print("ingrese una opcion valida")
             paso_1
             break
-        
+        continue
 
 #####################################################################################################################################
 
@@ -147,6 +123,6 @@ finalizarCompra()
 
             
  
- #PROBLEMA AL EJECUTAR EL BUCLE POR SEGUNDA VEZ SE ROMPE EL PROGRAMA NI TAMPOCO CIERRA BIEN EL BUCLE INICIAL
+ 
 
     
